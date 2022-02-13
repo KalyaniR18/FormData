@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+    <title> form validation</title>
+<style>
+::placeholder {
+            color: black;
+            opacity: 1;
+        }
+        
+      
+        
+        html {
+            background:wheat;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        body {
+            padding-top: 10vh;
+        }
+         
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            background:purple;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            height: 465px;
+            width: 350px;
+            box-shadow: -3px -2px 6px #6c6565, 7px 9px 25px #0b0b0b;
+        }
+        input {
+            height: 30px;
+            border: 2px solid #e1dede69;
+            border-radius: 5px;
+            background: wheat;
+            color: black;
+            text-align: center;
+            outline: none;
+            font-size: 15px;
+        }
+        
+        .username-style {
+            margin: 5px;
+            display: flex;
+            padding-bottom: 10px;
+        }
+        .form-item {
+            margin: 0 auto;
+            padding-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+        }
+        .form-button {
+            margin: auto;
+            font-size: 20px;
+            padding: 8px;
+            width: 280px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: rgb(75, 61, 61);
+            background: #fbba50;
+        }
+        p {
+            font-size: 12px;
+        }
+</style>
+
+</head>
+<body>
+<div class="container">
+    <h2>Sign Up Form</h2>
+    <form onsubmit= "return formvalid()" action="message.html">
+
+        <div class="username-style">
+    <input type="textbox" id="fname" placeholder="Firstname" required ></input><br>
+    </div>
+    <div class="username-style">
+    <input type="textbox" id="lname" placeholder="Lastname" required ></input><br>
+        </div>
+        <div class="form-item">
+            <input type="email" name="email" id="email" placeholder="Email" required><br>
+        </div>
+        <div class="form-item">
+    <input type="textbox" id="pass" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required ></input><br>
+    <input type="textbox" id="confirmpass" placeholder="Confirm password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  required></input><br>
+            </div>
+    <div class="username-style">
+      <button  type="submit"  >Sign Up</button>
+    </div>
+</form>
+<p>Copyright &copy; trailwebsite.com</p>
+</div>
+
+<script type="text/javascript">
+    // form tag is used to process the data 
+    function formvalid()
+    {
+            var Firstname=document.getElementById("fname").value;
+            var Lastname=document.getElementById("lname").value;
+            var password1= document.getElementById("pass").value;
+            var password2= document.getElementById("confirmpass").value;
+            
+    //bleow line is checking if values are blank or not,return false because not to jump to message.html file
+                    if (password1 == '')
+                    {
+                    alert ("Please enter Password");
+                    return false;
+
+                    }
+                      
+                // If confirm password not entered
+                else if (password2 == '')
+                {
+                    alert ("Please enter confirm password");
+                            return false;
+                }
+                   else if (password1!=password2)
+                     {
+                    alert ("\nPassword did not match: Please try again...")
+                    return false;
+                }
+    //if return true,then it goes to message.html
+                 else
+                    {
+                     true;
+                  }
+}
+    </script>
+
+
+    </body>
+
+
+</html>
